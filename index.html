@@ -6,11 +6,34 @@
     <title>Global Weather Forecast App</title>
   </head>
   <body>
-    <h1>Global Weather Forecast App</h1>
-    <p>
-      Welcome to the weather forecast app! Please enter a city name to get the
-      current weather information.
-    </p>
+    <header>
+      <form>
+        <input
+          type="text"
+          placeholder="Search a city or town"
+          name="location"
+          required
+          id="location-input"
+        />
+        <input type="submit" value="Search" />
+      </form>
+    </header>
+    <main>
+      <dv class="current-forecast">
+        <h1>Johannesburg</h1>
+        <p>
+          Moday 12:40 <br />
+          Humidity: 20%<br />
+          Wind: 5.2km/h
+        </p>
+      </dv>
+      <div class="current-weather-icon">🌤️</div>
+      <div class="current-temperature">
+        20&deg;C <br />
+        Partly cloudy <br />
+        Feels like 19&deg;C
+      </div>
+    </main>
 
     <footer>
       This Project was coded by
