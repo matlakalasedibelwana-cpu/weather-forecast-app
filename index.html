@@ -29,22 +29,24 @@
       <main>
         <section class="current-weather-section">
           <div class="current-forecast">
-            <h1 id="weather-location">Johannesburg</h1>
+            <h1 id="city">Johannesburg</h1>
             <p class="current-details">
               Monday 12:40 <br />
-              Humidity: <strong>20%</strong><br />
-              Wind: <strong>5.2km/h</strong>
+              Humidity: <strong id="current-humidity">20%</strong><br />
+              Wind: <strong id="current-windspeed">5.2km/h</strong>
             </p>
           </div>
           <div class="current-weather-icon">🌤️</div>
           <div class="current-temperature">
             <h2>
-              <span class="current-temperature-value">20</span
+              <span class="current-temperature-value" id="current-temperature"
+                >20</span
               ><span class="current-temperature-unit">&deg;C</span>
             </h2>
             <p class="current-details">
               Partly cloudy <br />
-              Feels like <strong>19&deg;C</strong>
+              Feels like
+              <strong><span id="feels-like-temperature">19</span>&deg;C</strong>
             </p>
           </div>
         </section>
