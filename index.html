@@ -13,12 +13,13 @@
   <body>
     <div class="app-container">
       <header>
-        <form class="search-form">
+        <form class="search-form" id="search-form">
           <input
             type="text"
             placeholder="Search a city or town"
             name="location"
             required
+            id="search-input"
             class="search-input"
           />
           <input type="submit" value="Search" class="search-button" />
@@ -27,7 +28,7 @@
       <main>
         <section class="current-weather-section">
           <div class="current-forecast">
-            <h1>Johannesburg</h1>
+            <h1 id="weather-location">Johannesburg</h1>
             <p class="current-details">
               Monday 12:40 <br />
               Humidity: <strong>20%</strong><br />
@@ -66,5 +67,6 @@
         >.
       </footer>
     </div>
+    <script src="src/script.js"></script>
   </body>
 </html>
