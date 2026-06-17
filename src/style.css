@@ -111,3 +111,47 @@ a:hover {
   color: #2f74c0;
   text-decoration: underline;
 }
+.seven-day-weather-forecast {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 32px;
+}
+.weekly-forecast {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 15px;
+  margin: 0;
+  line-height: 1;
+  padding: 4px 8px;
+  background-color: #eef5fb;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+.weekly-forecast-icon img {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+.weekly-forecast-condition {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.high-temperature strong {
+  font-weight: 600;
+  color: #e67e22;
+}
+.low-temperature {
+  color: #3498db;
+}
+.weekly-forecast-temperatures {
+  text-align: right;
+}
+.weekday {
+  font-weight: 500;
+  text-align: left;
+}
