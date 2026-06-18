@@ -20,7 +20,7 @@ function showWeather(response) {
   feelsLikeElement.innerHTML = Math.round(feelsLikeTemperature);
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="current-weather-icon" alt="weather icon" />`;
 
-  fetchWeeklyForecast(response.data.city);
+  fetchForecastData(response.data.city);
 }
 
 function formatDate(date) {
@@ -64,7 +64,14 @@ function handleSearchSubmit(event) {
   searchLocation(searchInput.value);
 }
 
-function fetchWeeklyForecast(city) {
+function formatWeekday(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[date.getDay()];
+}
+
+function fetchForecastData(city) {
   let apiKey = "0c03ba179oef7df9dt732c8467e7b15c";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
 
@@ -74,25 +81,24 @@ function fetchWeeklyForecast(city) {
 function displayWeeklyForecast(response) {
   console.log(response.data);
 
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue", "Wed"];
   let forecastHtml = "";
 
-  days.forEach(function (day) {
+  response.data.daily.forEach(function (day) {
     forecastHtml =
       forecastHtml +
       `<div class="weekly-forecast">
-            <span class="weekday">${day}</span>
+            <span class="weekday">${formatWeekday(day.time)}</span>
             <span class="weekly-forecast-condition">
               <span class="weekly-forecast-icon"
                 ><img
-                  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png"  alt="Weather icon"
+                  src="${day.condition.icon_url}"  alt="Weather icon"
               /></span>
-              <span class="weekly-forecast-description">Sunny</span>
+              <span class="weekly-forecast-description">${day.condition.description}</span>
             </span>
             <span class="weekly-forecast-temperatures"
-              ><span class="high-temperature"><strong>20&deg;C</strong></span
+              ><span class="high-temperature"><strong>${Math.round(day.temperature.maximum)}&deg;C</strong></span
               >|
-              <span class="low-temperature">19&deg;C</span>
+              <span class="low-temperature">${Math.round(day.temperature.minimum)}&deg;C</span>
             </span>
           </div>`;
   });
