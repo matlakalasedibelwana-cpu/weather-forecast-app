@@ -1,12 +1,17 @@
 body {
-  background-color: #acd1e5;
+  background-image: url("images/overcast-sky.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
 }
 .app-container {
-  background-color: #dfe8e6;
+  background-color: rgba(223, 232, 230, 0.7);
   margin: 64px auto;
   padding: 32px;
   max-width: 600px;
   width: 90%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 12px;
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
   font-family: "Inter", sans-serif;
@@ -129,6 +134,11 @@ a:hover {
   background-color: #eef5fb;
   border-radius: 16px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+.weekly-forecast-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .weekly-forecast-icon img {
   width: 42px;
