@@ -62,7 +62,36 @@ function handleSearchSubmit(event) {
   searchLocation(searchInput.value);
 }
 
+function displayWeeklyForecast() {
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue", "Wed"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `<div class="weekly-forecast">
+            <span class="weekday">${day}</span>
+            <span class="weekly-forecast-condition">
+              <span class="weekly-forecast-icon"
+                ><img
+                  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png"  alt="Weather icon"
+              /></span>
+              <span class="weekly-forecast-description">Sunny</span>
+            </span>
+            <span class="weekly-forecast-temperatures"
+              ><span class="high-temperature"><strong>20&deg;C</strong></span
+              >|
+              <span class="low-temperature">19&deg;C</span>
+            </span>
+          </div>`;
+  });
+
+  let forecastElement = document.querySelector("#week-forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
+
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchLocation("Johannesburg");
+displayWeeklyForecast();
